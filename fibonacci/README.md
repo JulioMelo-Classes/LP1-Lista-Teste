@@ -15,3 +15,16 @@ dois termos imediatamente anteriores. Desta forma se fosse fornecido ao programa
 ## Conhecimentos Necessários
 
 Utilização de funcões, retorno de função, utilização da classe `std::vector` da STL, laços
+
+
+## Execução do programa
+
+Esta questão é no formato de "escreva uma função" assim, para executar os testes você precisa fazer os comandos abaixo, 
+no terminal, a partir do diretório onde este README está.
+
+```
+mkdir build
+cd build
+cmake ..
+cmake --build . --target run_tests
+```
