@@ -22,6 +22,11 @@ include_directories( tests/lib/test_manager/include src/)
 add_executable( ${TEST_NAME}
                 tests/lib/test_manager/src/test_manager.cpp
                 tests/main.cpp )
+                
+set( APP_NAME "program" )
+add_executable( ${APP_NAME}
+                src/main.cpp
+                src/function.cpp )
 
 target_link_libraries( ${TEST_NAME} ${LIB_NAME} )
 
