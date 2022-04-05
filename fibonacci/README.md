@@ -28,3 +28,13 @@ cd build
 cmake ..
 cmake --build . --target run_tests
 ```
+
+Vc também pode rodar seus próprios testes modificando o arquivo [src/main.cpp](src/main.cpp) Rodando seus próprios testes:
+
+```
+mkdir build
+cd build
+cmake ..
+cmake --build . --target program
+./program
+```
