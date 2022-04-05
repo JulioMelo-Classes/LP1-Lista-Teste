@@ -13,3 +13,24 @@ Entrada | Saída
 ## Conchecimentos Necessários
 
 Leitura e escrita da entrada padrão, laços e condicionais
+
+## Execução do programa
+
+Nesta questão para executar os testes você precisa fazer os seguintes comandos, no terminal, a partir do diretório onde este README está:
+
+```
+mkdir build
+cd build
+cmake ..
+cmake --build . --target verify
+```
+
+Rodando seus próprios testes:
+
+```
+mkdir build
+cd build
+cmake ..
+cmake --build .
+./program
+```
