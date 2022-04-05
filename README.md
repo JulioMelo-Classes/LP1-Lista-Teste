@@ -38,7 +38,15 @@ Para você poder compilar e executar os testes preparados para o exercício é n
 
 ## Instruções Categoria Implementação de Programa
 
-Vamos considerar que desejamos compilar e testar o projeto `Intervalos`, que requer a criação de um programa. Cada pasta de projeto que requer um programa como resposta está organizado da seguinte forma:
+Cada problema tem seu diretório e em cada diretório existe um aruivo CMakeLists correspondente, esse arquivo está configurado para
+compilar o código e rodar os testes para cada questão.
+
+Os comandos para execução dos testes variam dependendo se o problema é do tipo "escreva uma função" ou "escreva um programa", mas
+cada um dos problemas tem instruções específicas sobre como executar e realizar testes neles.
+
+Abaixo seguem alguns exemplos de saídas para compilação e alguns problemas (que não estão inclusos nesta lista),
+suponha que tenhamos um problema do tipo "escreva um programa" com nome "intervalos" com a configuração de diretórios como mostrada abaixo:
+
 ```
 +─intervalos          ---> Nome da posta do projeto
   ├─── CMakeLists.txt ---> Script de configuração do cmake.
@@ -49,16 +57,16 @@ Vamos considerar que desejamos compilar e testar o projeto `Intervalos`, que req
        └─── main.cpp  ---> Arquivo que precisa ser alterado para conter sua resposta. [editar]
 ```
 
-A partir da pasta que contém as subpastas de cada questão faça:
+Para compilar e rodar os testes você precisaria fazer os seguintes comandos, a partir deste diretório:
 
-1. Edite o arquivo `intervalos/src/main.cpp` e implemente a solução do problema.
-2. Entre na pasta do projeto, no caso `intervalos`:
+1. Entrar no diretório do problema, criar a pasta build e entrar nela
 ```
 cd intervalos
 mkdir build
 cd build
 ```
-3. Execute o comando do `cmake` para gerar os arquivos intermediários. Esse comando cria a pasta `build` que conterá os arquivos _Makefile_ e onde o executável será gerado.
+
+2. Execute o comando do `cmake` para gerar os arquivos intermediários. Esse comando cria na pasta `build` os arquivos _Makefile_ que geram os executáveis e rodam os testes.
 ```
 cmake ../
 ```
@@ -67,7 +75,7 @@ Possível saída:
 <!-- <img src="./pics/cmake_prep.png" width="350"> -->
 ![cmake preparation](./pics/cmake_prep.png)
 
-4. Execute o comando do `cmake` para **compilar** o projeto `intervalos` dentro da pasta `build`. Esse comando criará um executável dentro de `build` chamado (de forma genérica) de `program`.
+3. Execute o comando do `cmake` para **compilar** o projeto `intervalos` dentro da pasta `build`. Esse comando criará um executável dentro de `build` chamado (de forma genérica) de `program`.
 ```
 cmake --build .
 ```
@@ -77,14 +85,13 @@ Possível saída:
 ![cmake building](./pics/cmake_build_int.png)
 
 
-5. Se houver erro de compilação, corrija e volte ao passo anterior. Se a compilação for bem sucedida, prossiga com o comando abaixo para entrar na pasta `build` e rodar os testes.
+4. Se houver erro de compilação, corrija e volte ao passo anterior. Se a compilação for bem sucedida, prossiga com o comando abaixo dentro da pasta `build` para executar os testes.
 ```
 cmake --build . --target verify
 ```
-6. Observe os resultados dos testes do passo anterior. Se algum teste falhar você deve corrigir o problema e compilar o projeto novamente, como descrito no passo 4. Se você estiver na pasta `build` e desejar compilar novamente, pode executar os comandos abaixo, ao invés de retornar ao passo 4 (que deve ser executado de fora do `build`)
-```
-cmake --build . --target verify
-```
+
+5. Observe os resultados dos testes do passo anterior. Se algum teste falhar você deve corrigir o problema e compilar o projeto novamente, como descrito no passo 4.
+
 Se os testes forem bem sucedidos, você deve encontrar uma saída como essa abaixo:
 
 <!-- <img src="./pics/io_test.png" width="550"> -->
@@ -99,6 +106,7 @@ Vamos considerar que desejamos compilar e testar o projeto `Fibonacci`, que requ
   ├─── build              ---> Pasta onde os executáveis serão gerados. [será criada]
   ├─── tests              ---> Pasta que contém os arquivos de teste unitário.
   └─── src                ---> Pasta que contém arquivo que você precisa editar.
+       ├─── main.cpp      ---> Arquivo usado para seus tetes privados, ele não será levado em consideração para execução dos testes automáticos.
        ├─── function.h    ---> Arquivo cabeçalho com definição da assinatura da função. 
        └─── function.cpp  ---> Arquivo que precisa ser alterado para conter sua resposta. [editar]
 ```
